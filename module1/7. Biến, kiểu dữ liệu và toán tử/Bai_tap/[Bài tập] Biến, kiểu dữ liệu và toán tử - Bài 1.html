@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Điểm Trung Bình</title>
+</head>
+<body>
+<script>
+    let mark1;
+    let mark2;
+    let mark3;
+    mark1 = prompt("Enter the physics mark: ");
+    mark2 = prompt("Enter the chemistry mark: ");
+    mark3 = prompt("Enter the biology mark: ");
+    let physics = parseInt(mark1);
+    let chemistry = parseInt(mark2);
+    let biology = parseInt(mark3);
+    let average = (physics + chemistry + biology)/3;
+    let sum = physics + chemistry + biology;
+    document.write("The average mark is: " + average);
+    document.write('<br/>');
+    document.write("The sum mark is: " + sum);
+</script>
+</body>
+</html>

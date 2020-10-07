@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="number1">
+<input type="text" id="number2">
+<br><br>
+<!-- Cách 1:
+<input type="button" id="add" onclick="addTwoNumber()" value="Addition(+)">
+<input type="button" id="sub" onclick="subTwoNumber()" value="Subtraction(-)">
+<input type="button" id="multi" onclick="multiTwoNumber()" value="Multiplication(X)">
+<input type="button" id="div" onclick="divTwoNumber()" value="Division(/)">
+-->
+
+
+<input type="button" id="add" onclick="addTwoNumber('add')" value="Addition(+)">
+<input type="button" id="sub" onclick="addTwoNumber('sub')" value="Subtraction(-)">
+<input type="button" id="multi" onclick="addTwoNumber('multi')" value="Multiplication(X)">
+<input type="button" id="div" onclick="addTwoNumber('div')" value="Division(/)">
+
+<br><br>
+<input name="result" id="result" type="text" style="border: hidden">
+
+<script>
+
+    //ĐỪng bao giờ .value cho biến toàn cục.
+
+    //3 cách để đẩy từ JS->HTML
+    // Nếu là thẻ hiển thị văn bản ta có 2 cách là dùng innerText hoặc innerHTML
+    //Nếu là thẻ nhập input, select, textarea thì dùng .value
+
+    let number1 = document.getElementById("number1");
+    let number2 = document.getElementById("number2");
+    let e = document.getElementById("result");
+
+    //Cách 2:
+    function addTwoNumber(x) {
+        if(x=='add'){
+            let result = parseInt(number1.value) +  parseInt(number2.value);
+            e.value = "Result Addtion :" + result;
+        }
+        if(x=='sub'){
+            let result = number1.value - number2.value;
+            e.value = "Result Subtraction :" + result;
+        }
+        if(x=='multi'){
+            let result = number1.value * number2.value;
+            e.value = "Result Multiplication :" + result;
+        }
+        if(x=='div'){
+            if(number2.value != 0){
+                let result = number1.value /  number2.value;
+                e.value = "Result Division :" + result;
+            }
+            else
+                alert("Không thực hiện phép chia cho số 0");
+        }
+    }
+
+    /*Cách 1:
+    function addTwoNumber() {
+        let result = parseInt(number1.value) +  parseInt(number2.value);
+        e.value = "Result Addtion :" + result;
+    }
+
+
+
+    function subTwoNumber() {
+        let result = number1.value - number2.value;
+        e.value = "Result Subtraction :" + result;
+    }
+
+    function multiTwoNumber() {
+        let result = number1.value * number2.value;
+        e.value = "Result Multiplication :" + result;
+    }
+
+    function divTwoNumber() {
+        if(number2.value != 0){
+            let result = number1.value /  number2.value;
+            e.value = "Result Division :" + result;
+        }
+        else
+            alert("Không thực hiện phép chia cho số 0");
+    }
+
+     */
+
+
+
+</script>
+</body>
+</html>

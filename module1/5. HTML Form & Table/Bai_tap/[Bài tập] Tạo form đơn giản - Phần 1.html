@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo Form Đơn Giản</title>
+</head>
+<body>
+<form method = "GET" action="https://www.google.com.vn/search" >
+    <table width="30%" cellspacing="5">
+        <tr>
+            <th style="background: orange" colspan="2">SỞ THÍCH CỦA BẠN</th>
+        </tr>
+        <tr>
+            <td style="color: blue" align="right">
+                Họ và tên
+            </td>
+            <td>
+                <input type="text" name="yourname" size="30">  <!--Nếu đặt tên bằng 1 từ thì khi bấm "Gửi thông tin" sẽ ra thông tin tìm kiếm,
+                                                    còn nếu đặt tên từ 2 từ trở lên thì thanh tìm kiếm google không cho ra kết quả gì.-->
+            </td>
+        </tr>
+
+        <tr>
+            <td style="color: blue" align="right">
+                Email
+            </td>
+            <td>
+                <input type="text" name="email" size="20">
+            </td>
+        </tr>
+
+        <tr>
+            <td style="color: blue; padding-bottom: 80px" align="right">
+                Sở thích
+            </td>
+            <td>
+                <table>
+                    <tr>
+                        <td><input type="checkbox" name="hobby"/> Thể thao</td>
+                        <td><input type="checkbox" name="hobby"/> Âm nhạc</td>
+                        <td><input type="checkbox" name="hobby"/> Đọc sách</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="hobby"/> Lướt web</td>
+                        <td><input type="checkbox" name="hobby"/> Chơi game</td>
+                        <td><input type="checkbox" name="hobby"/> Điện ảnh</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="hobby"/> Du lịch</td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Gửi thông tin"> </td>
+                        <td><input type="reset" value="Nhập lại"/> </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+    </table>
+</form>
+
+</body>
+</html>

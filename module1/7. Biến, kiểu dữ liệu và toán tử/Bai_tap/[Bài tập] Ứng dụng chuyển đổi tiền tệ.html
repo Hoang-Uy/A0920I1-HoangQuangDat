@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng Dụng Chuyển Đổi Tiền Tệ</title>
+</head>
+<body>
+
+    Amount <input name="amount" id="amount" type="text" >
+    From Currency
+    <select id="Select1">
+        <option value="VietNam" id="VietNam">VietNam</option>
+        <option value="France" id="France">France</option>
+    </select>
+    To Currency
+    <select id="Select2">
+        <option value="USD" id="USD">USD</option>
+    </select>
+    <input name="convert" id="convert" type="button" value="Convert" onclick="convert()" style="background: mediumvioletred">
+    <br><br>
+    <input name="result" id="result" type="text" style="color: blue; border: hidden">
+<script>
+    let a = document.getElementById("amount");
+    let b = document.getElementById("convert");
+    let c = document.getElementById("Select1");
+    let d = document.getElementById("Select2");
+    let e = document.getElementById("result");
+    function convert() {
+        if(c.value == "VietNam" && d.value == "USD"){
+            let result =  a.value * 0.000043878894251864855;
+            e.value = "Result :"+result;
+        }
+    }
+</script>
+</body>
+</html>
