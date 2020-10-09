@@ -5,7 +5,7 @@
     <title>Ứng Dụng Chuyển Đổi Tiền Tệ</title>
 </head>
 <body>
-
+    <!--
     Amount <input name="amount" id="amount" type="text" >
     From Currency
     <select id="Select1">
@@ -19,18 +19,58 @@
     <input name="convert" id="convert" type="button" value="Convert" onclick="convert()" style="background: mediumvioletred">
     <br><br>
     <input name="result" id="result" type="text" style="color: blue; border: hidden">
+    -->
+    <table>
+        <tr>
+            <th>Amount</th>
+            <th>From Currency</th>
+            <th>To Currency</th>
+        </tr>
+        <tr>
+            <td><input id="amount"></td>
+            <td>
+                <select id="from">
+                    <option>VietNam</option>
+                    <option>USD</option>
+                </select>
+            </td>
+            <td>
+                <select id="to">
+                    <option>VietNam</option>
+                    <option>USD</option>
+                </select>
+            </td>
+            <td>
+                <input name="convert" id="convert" type="button" value="Convert" onclick="convert()" style="background: mediumvioletred">
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                <input name="result" id="result" type="text" style="color: blue; border: hidden">
+            </td>
+        </tr>
+    </table>
+
 <script>
-    let a = document.getElementById("amount");
-    let b = document.getElementById("convert");
-    let c = document.getElementById("Select1");
-    let d = document.getElementById("Select2");
-    let e = document.getElementById("result");
     function convert() {
-        if(c.value == "VietNam" && d.value == "USD"){
-            let result =  a.value * 0.000043878894251864855;
-            e.value = "Result :"+result;
+        let amount = document.getElementById("amount").value;
+        let fromCurrency = document.getElementById("from").value;
+        let toCurrency = document.getElementById("to").value;
+        let result = document.getElementById("result");
+        if(fromCurrency === "VietNam" && toCurrency === "USD"){
+            let tmp =  amount / 23000;
+            result.value = "Result :"+tmp;
+        }
+        if(fromCurrency === "USD" && toCurrency === "VietNam"){
+            let tmp =  amount * 23000;
+            result.value = "Result :"+tmp;
+        }
+        if((fromCurrency === "VietNam" && toCurrency === "VietNam") || (fromCurrency === "USD" && toCurrency === "USD")){
+            alert("Mời bạn nhập tiền");
         }
     }
+
 </script>
 </body>
 </html>
