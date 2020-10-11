@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    Tính thuế thu nhập và lương ròng (số tiền lương thực sự mà nhân viên đó nhận được). Với các thông số sau:
+
+        30% thuế thu nhập nếu lương là 15 triệu
+
+        20% thuế thu nhập nếu lương từ 7 đến 15 triệu
+
+        10% thuế thu nhập nếu lương dưới 7 triệu
+     */
+
+    let thuesuat;
+    let sothue;
+    let luongrong=0;
+    let luong = parseInt(prompt("Nhâp số tiền lương: "));
+
+    if(luong>15)
+    {
+        sothue=luong*30/100;
+        thuesuat=30;
+    }
+    else if(luong>=7)
+    {
+        sothue=luong*20/100;
+        thuesuat=20;
+    }
+    else
+    {
+        sothue=luong*10/100;
+        thuesuat=10;
+    }
+    luongrong=luong-sothue;
+
+    alert("Luong = "+ luong);
+    alert("Thue thu nhap voi muc thue suat "+ thuesuat + "% = "+ sothue);
+    alert("So tien luong ban nhan la = "+ luongrong);
+
+</script>
+</body>
+</html>

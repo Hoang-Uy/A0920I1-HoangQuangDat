@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    Chương trình tính tiền điện với chỉ số mới và chỉ số cũ Được nhập vào từ bàn phím.
+    In ra màn hình chỉ số cũ, chỉ số mới và số tiền phải trả. Biết rằng:
+        - 100 kWh đầu giá 1000
+        - Từ kWh 101 – 150 giá 1200
+        - Từ kWh 151 – 200 giá 2000
+        - Từ 201 kW trở lên giá 2500.
+     */
+
+    let tien;
+    let csc = parseInt(prompt("Nhâp chỉ số cũ: "));
+    let csm = parseInt(prompt("Nhập chỉ số mới: "));
+
+    let tieuthu=csm-csc;
+
+    if(tieuthu<=100)
+        tien=tieuthu*1000;
+    else{
+        if(tieuthu<=150)
+            tien=100*1000 + (tieuthu-100)*1200;
+        else
+        {
+            if(tieuthu<=200)
+                tien=100*1000 + 50*1200 + (tieuthu-150)*2000;
+            else
+            {
+                if(tieuthu>=201)
+                    tien=100*1000 + 50*1200 + 50*2000 + (tieuthu-200)*2500;
+            }
+        }
+    }
+
+    alert("CSM = "+ csm);
+
+    alert("CSC = "+ csc);
+
+    alert("Tien = "+ tien);
+</script>
+</body>
+</html>
