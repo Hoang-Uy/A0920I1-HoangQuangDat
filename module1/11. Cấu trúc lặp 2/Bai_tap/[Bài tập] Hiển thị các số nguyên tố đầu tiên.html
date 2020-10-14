@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let numbers = prompt("Nhập số lượng số nguyên tố cần in ra: ");
+    let count=0;
+    let cnt;
+    for(let x=2;;x++){
+        cnt=0;
+        for(let i=1;i<=x;i++)
+            if(x%i==0)
+                cnt++;
+        if(cnt==2){
+            document.writeln(x);
+            count++;
+            if(count==numbers) break;
+        }
+    }
+</script>
+</body>
+</html>

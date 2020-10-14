@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <button type="button" onclick="play()">Chơi</button>
+    <br>
+    <p id="random"></p>
+</form>
+
+<script>
+    function play(){
+        let random1 = parseInt(prompt("Nhập vào cận trước:"));
+        let random2 = parseInt(prompt("Nhập vào cận sau:"));
+
+        let randomNumber = Math.floor(Math.random() * (random2-random1)) + random1;
+        document.getElementById('random').innerHTML = "Số ngẫu nhiên là: "+randomNumber+"<br>";
+        for(let i=0; i<3 ;i++){
+            let number = parseInt(prompt("Nhập giá trị bạn muốn đoán:"));
+            if(randomNumber == number){
+                alert("Congratulation!");
+                break;
+            }
+            else{
+                if(number > randomNumber)
+                    alert("Số bạn nhập vào lớn hơn số ngẫu nhiên");
+                else
+                    alert("Số bạn nhập vào bé hơn số ngẫu nhiên");
+            }
+        }
+    }
+</script>
+</body>
+</html>

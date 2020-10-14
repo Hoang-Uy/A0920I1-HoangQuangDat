@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let num = prompt("Nhập số lượng số fibonacci cần in ra: ");
+    let a=1, b=0, temp;
+    while(num>0){
+        temp = a;
+        a=a+b;
+        b=temp;
+        num--;
+        if(b%5==0){
+            document.writeln("Số fibonacci đầu tiên chia hết cho 5 là:");
+            document.writeln(b);
+            break;
+        }
+    }
+</script>
+</body>
+</html>
