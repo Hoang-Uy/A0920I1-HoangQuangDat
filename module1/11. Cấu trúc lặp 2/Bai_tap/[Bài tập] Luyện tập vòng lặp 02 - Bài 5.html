@@ -5,6 +5,17 @@
     <title>Title</title>
 </head>
 <body>
+<script>
+    do {
+        let a = parseFloat(prompt("Nhập số tiền ban đầu: "));
+        let r = parseFloat(prompt("Nhập lãi suất hàng tháng (%): "));
+        let n = parseFloat(prompt("Nhập số tháng cho vay: "));
+    } while (a <= 0 || r <= 0 || n <= 0);
 
+
+    let t = a * Math.pow(1 + r, n);
+
+    alert("Tiền vốn lẫn lãi sau " + n + " tháng là: " + t);
+</script>
 </body>
 </html>
