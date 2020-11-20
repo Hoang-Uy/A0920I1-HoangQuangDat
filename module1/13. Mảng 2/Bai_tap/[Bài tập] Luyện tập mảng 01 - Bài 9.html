@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //alert("Nhập mảng a!");
+    let a = new Array(10);
+    for(let i=0; i<a.length; i++){
+        a[i] = parseInt(prompt("a["+i+"] = "));
+    }
+    document.writeln("Mảng a: "+a+"<br>");
+
+    //alert("Nhập mảng b!");
+    let b = new Array(10);
+    for(let i=0; i<b.length; i++){
+        b[i] = parseInt(prompt("b["+i+"] = "));
+    }
+    document.writeln("Mảng b: "+b+"<br>");
+
+    let c = new Array(20);
+    c = a.concat(b);
+    document.writeln("Mảng c: "+c+);
+</script>
+</body>
+</html>

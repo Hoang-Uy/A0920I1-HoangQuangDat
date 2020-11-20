@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Celcius {
+        constructor(celcius) {
+            this.celcius = celcius;
+        }
+        getCelcius() {
+            return this.celcius;
+        }
+        setCelcius(celcius) {
+            this.celcius = celcius;
+        }
+        celciusToFahrenheit() {
+            return (this.celcius*9)/5 + 32;
+        }
+        celciusToKenvin() {
+            return this.celcius + 273.15;
+        }
+    }
+    let celcius =new Celcius(25);
+    alert(celcius.celciusToFahrenheit());
+    alert(celcius.celciusToKenvin());
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = new Array(10);
+    let count = 0;
+    for(let i=0; i<a.length; i++){
+        a[i] = parseInt(prompt("a["+i+"] = "));
+    }
+    let v = parseInt(prompt("Nhập phần tử số nguyên V = "));
+
+    for(let i=0; i<a.length; i++){
+        if(v == a[i]){
+            count++;
+        }
+    }
+
+    if(count >= 1){
+        document.writeln("V is in the array");
+    }
+    else{
+        document.writeln("V is not in the array");
+    }
+</script>
+</body>
+</html>

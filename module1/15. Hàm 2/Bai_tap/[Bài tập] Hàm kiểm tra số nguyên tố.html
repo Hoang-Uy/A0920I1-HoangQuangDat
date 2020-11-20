@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    document.writeln("Dãy các số nguyên tố nhỏ hơn 10000: ");
+    isPrime(10000);
+    function isPrime(number) {
+        let count = 0;
+        let cnt;
+        for (let x = 2; ; x++) {
+            cnt = 0;
+            for (let i = 1; i <= x; i++)
+                if (x % i == 0)
+                    cnt++;
+            if (cnt == 2) {
+                if (x >= number) break;
+                document.writeln(x);
+                count++;
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

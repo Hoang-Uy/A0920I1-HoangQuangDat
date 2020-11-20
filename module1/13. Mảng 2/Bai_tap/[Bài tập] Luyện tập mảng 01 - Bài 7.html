@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = new Array(10);
+    for(let i=0; i<a.length; i++){
+        a[i] = parseInt(prompt("a["+i+"] = "));
+    }
+    let v = parseInt(prompt("Nhập phần tử số nguyên V = "));
+    document.writeln("Mảng ban đầu: "+a+"<br>");
+
+    for(let i=0; i<a.length; i++){
+        if(v == a[i]){
+            for(let j=i; j<a.length-1; j++){
+                a[j] = a[j+1];
+            }
+            a[a.length-1] = 0;
+        }
+    }
+    document.writeln("Mảng sau khi thay đổi: "+a);
+
+</script>
+</body>
+</html>
