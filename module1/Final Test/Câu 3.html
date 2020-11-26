@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class SoTietKiem {
+        constructor(maSo, loaiTietKiem, hoTenKhachHang, chungMinhNhanDan, ngayMoSo, soTienGui) {
+            this.maSo = maSo;
+            this.loaiTietKiem = loaiTietKiem;
+            this.hoTenKhachHang = hoTenKhachHang;
+            this.chungMinhNhanDan = chungMinhNhanDan;
+            this.ngayMoSo = ngayMoSo;
+            this.soTienGui = soTienGui;
+        }
+        getMaSo(){
+            return this.maSo;
+        }
+
+        setMaSo(maSo){
+            this.maSo = maSo;
+        }
+
+        getLoaiTietKiem(){
+            return this.loaiTietKiem;
+        }
+
+        setLoaiTietKiem(loaiTietKiem){
+            this.loaiTietKiem = loaiTietKiem;
+        }
+
+        getHoTenKhachHang() {
+            return this.hoTenKhachHang;
+        }
+
+        setHoTenKhachHang(hoTenKhachHang){
+            this.hoTenKhachHang = hoTenKhachHang;
+        }
+
+        getChungMinhNhanDan() {
+            return this.chungMinhNhanDan;
+        }
+
+        setChungMinhNhanDan(chungMinhNhanDan){
+            this.chungMinhNhanDan = chungMinhNhanDan;
+        }
+
+        getNgayMoSo() {
+            return this.ngayMoSo;
+        }
+
+        setNgayMoSo(ngayMoSo){
+            this.ngayMoSo = ngayMoSo;
+        }
+
+        getSoTienGui() {
+            return this.soTienGui;
+        }
+
+        setSoTienGui(soTienGui){
+            this.soTienGui = soTienGui;
+        }
+    }
+
+    let kiemTraNgayMoSo = /^\d{2}[./-]\d{2}[./-]\d{4}$/;
+
+    let mangSoTietKiem = []; // Khai báo mảng sổ tiết kiệm
+    mangSoTietKiem.push();
+    mangSoTietKiem.push();
+    mangSoTietKiem.push();
+    mangSoTietKiem.push();
+
+    function hienThiDanhSach() {
+        document.body.innerHTML="";
+        let tam ="<table border='1'>"; // biến tạm dùng để tạo bảng.
+        tam+="<tr>";
+        tam+="<th width='100px'>Mã sổ</th>";
+        tam+="<th width='100px'>Loại tiết kiệm</th>";
+        tam+="<th width='100px'>Họ tên khách hàng</th>";
+        tam+="<th width='100px'>Chứng minh nhân dân</th>";
+        tam+="<th width='100px'>Ngày mở sổ</th>";
+        tam+="<th width='100px'>Số tiền gửi</th>";
+        tam+="</tr>";
+        for(let i= 0;i<mangSoTietKiem.length;i++){
+            tam+="<tr>";
+            tam+="<td>"+mangSoTietKiem[i].getMaSo()+"</td>";
+            tam+="<td>"+mangSoTietKiem[i].getLoaiTietKiem()+"</td>";
+            tam+="<td>"+mangSoTietKiem[i].getHoTenKhachHang()+"</td>";
+            tam+="<td>"+mangSoTietKiem[i].getChungMinhNhanDan()+"</td>";
+            tam+="<td>"+mangSoTietKiem[i].getNgayMoSo()+"</td>";
+            tam+="<td>"+mangSoTietKiem[i].getSoTienGui()+"</td>";
+            tam+="<td><button onclick='xoaSoTietKiem("+i+")'>Xóa</button></td>";
+            tam+="</tr>";
+        }
+        tam+="</table>";
+        tam+="<button onclick='themSoTietKiem()'>Thêm</button>"
+        document.writeln(tam);
+    }
+
+    function themSoTietKiem() {
+        document.body.innerHTML="";
+        let tam = "Mã sổ: <input type='text' id='maSo'><br>";
+        tam+="Loại tiết kiệm: <input type='text' id='loaiTietKiem'><br>";
+        tam+="Họ tên khách hàng: <input type='text' id='hoTenKhachHang'><br>";
+        tam+="Chứng minh nhân dân: <input type='number' id='chungMinhNhanDan'><br>";
+        tam+="Ngày mở sổ: <input type='text' id='ngayMoSo'><br>";
+        tam+="Số tiền gửi: <input type='number' id='soTienGui'><br>";
+        tam+="<button onclick='themThanhCong()'>Thêm</button>"
+        document.writeln(tam);
+    }
+    function themThanhCong() {
+        let checkValid = true;
+        let maSo = document.getElementById("maSo").value;
+        if(maSo.length > 5){
+            checkValid = false;
+        }
+
+        let loaiTietKiem = document.getElementById("loaiTietKiem").value;
+        if(loaiTietKiem.length > 10){
+            checkValid = false;
+        }
+
+        let hoTenKhachHang = document.getElementById("hoTenKhachHang").value;
+        if(hoTenKhachHang.length > 30){
+            checkValid = false;
+        }
+
+        let chungMinhNhanDan = document.getElementById("chungMinhNhanDan").value;
+
+        let ngayMoSo = document.getElementById("ngayMoSo").value;
+
+        let soTienGui = document.getElementById("soTienGui").value;
+
+
+        if(checkValid == true){
+            for(let i=0; i<mangSoTietKiem.length; i++){
+                if(maSo == mangSoTietKiem[i].getMaSo()){
+                    checkValid = false;
+                }
+            }
+            if(checkValid == true){
+                mangSoTietKiem.push(new SoTietKiem(maSo,loaiTietKiem,hoTenKhachHang,chungMinhNhanDan,ngayMoSo,soTienGui));
+                alert("Thêm sổ tiết kiệm thành công!");
+                hienThiDanhSach();
+            }
+            else{
+                alert("Đã tồn tại mã sổ tiết kiệm này! Mời bạn nhập lại.");
+                themSoTietKiem();
+            }
+        }
+        else{
+            alert("Bạn đã nhập sai định dạng dữ liệu. Mời nhập lại!");
+            themSoTietKiem();
+        }
+
+    }
+
+    function xoaSoTietKiem(i) {
+        if(confirm("Bạn có muốn xóa sổ "+mangSoTietKiem[i].getMaSo()+" hay không?")) {
+            mangSoTietKiem.splice(i,1);
+            hienThiDanhSach();
+        }
+    }
+    hienThiDanhSach();
+</script>
+</body>
+</html>

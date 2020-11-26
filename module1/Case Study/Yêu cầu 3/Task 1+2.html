@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu Cầu 3 - Task 1</title>
+</head>
+<body>
+<script>
+    let name;
+    let identityCard;
+    let birthday;
+    let email;
+    let address;
+    let typeCustomer;
+    let discount;
+    let quantityIncluded;
+    let rentDays;
+    let typeService;
+    let typeRoom;
+
+    let tempName = "";
+    name = prompt("Enter your name: ");
+    name = name.trim().toLowerCase();
+    for(let i=0; i<name.length; i++){
+        if(name.charAt(i) == " " && name.charAt(i+1) == " "){
+            continue;
+        }
+        if(i==0 || name.charAt(i-1) == " "){
+            tempName += name.charAt(i).toUpperCase();
+            continue;
+        }
+        tempName += name.charAt(i);
+    }
+    name = tempName;
+
+    let check = false;
+
+    do{
+        identityCard = prompt("Enter your identity card: ");
+        if(!isNaN(identityCard)){
+            identityCard = Number.parseFloat(identityCard);
+        }
+        if(!Number.isInteger(identityCard)){
+            alert("CMND không đúng định dạng");
+            continue;
+        }
+        if(identityCard<10000000 || identityCard>99999999){
+            alert("CMND không đúng định dạng");
+            continue;
+        }
+        check = true;
+    }while(!check)
+
+    check=false;
+
+    do{
+        let countAt=0;
+        let countDoc=0;
+        email = prompt("Enter your email: ");
+        for(let i=0; i<email.length; i++){
+            if(email.charAt(i) == "@"){
+                countAt++;
+                for(let j=i+1; j<email.length; j++){
+                    if(email.charAt(j) == "."){
+                        countDoc++;
+                    }
+                }
+            }
+        }
+        if(countAt!=1 || countDoc<1){
+            alert("Email bạn nhập không đúng");
+        } else{
+            check=true;
+        }
+
+    }while(!check)
+
+
+    check=false;
+
+    do{
+        birthday = prompt("Enter your birthday: ");
+        if(birthday.charAt(2) == "/" && birthday.charAt(5) == "/"){
+            let day = birthday.substring(0,2);
+            let month = birthday.substring(3,5);
+            let year = birthday.substring(6,10);
+            if(!isNaN(day) && !isNaN(month) && !isNaN(year)){
+                day = Number.parseFloat(day);
+                month = Number.parseFloat(month);
+                year = Number.parseFloat(year);
+
+                if(Number.isInteger(day) && Number.isInteger(month) && Number.isInteger(year)){
+                    if(day<32 && month<13 && year>1950){
+                        check = true;
+                    }
+                }
+            }
+        }
+        if(!check){
+            alert("Ngày sinh không đúng định dạng");
+        }
+    }while(!check);
+
+
+    check = false;
+
+    do{
+        rentDays = prompt("Enter your rent days: ");
+        if(!isNaN(rentDays)){
+            rentDays = Number.parseFloat(rentDays);
+            if(Number.isInteger(rentDays) && rentDays>0){
+                check = true;
+            }
+        }
+        if(!check){
+            alert("Số ngày thuê phải là số nguyên dương")
+        }
+    }while(!check);
+
+
+    check = false;
+
+    do{
+        quantityIncluded = prompt("Enter your quantity included: ");
+        if(!isNaN(quantityIncluded)){
+            quantityIncluded = Number.parseFloat(quantityIncluded);
+            if(Number.isInteger(quantityIncluded) && quantityIncluded>0){
+                check = true;
+            }
+        }
+        if(!check){
+            alert("Số người đi kèm phải là số nguyên dương")
+        }
+    }while(!check);
+
+    alert(
+        "Name: "+name+"\n"+
+        "Identity Card: "+identityCard+"\n"+
+        "Date of Birth: "+birthday+"\n"+
+        "Email: "+email+"\n"+
+        "Quantity Included = "+quantityIncluded+"\n"+
+        "Rent Days = "+rentDays+"\n"
+    );
+
+
+
+</script>
+</body>
+</html>

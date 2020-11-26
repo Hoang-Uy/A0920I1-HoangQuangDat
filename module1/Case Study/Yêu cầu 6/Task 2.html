@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu Cầu 6 - Task 2</title>
+</head>
+<body>
+<script>
+    class Employee {
+        constructor(name, birthday, identifyCard, phone, email, level, position, salary){
+            this.name = name;
+            this.birthday = birthday;
+            this.identifyCard = identifyCard;
+            this.phone = phone;
+            this.email = email;
+            this.level = level;
+            this.position = position;
+            this.salary = salary;
+        }
+        setName(name) {
+            this.name = name;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setIdentifyCard(identifyCard) {
+            this.identifyCard = identifyCard;
+        }
+
+        getIdentifyCard() {
+            return this.identifyCard;
+        }
+
+        setBirthday(birthday) {
+            this.birthday = birthday;
+        }
+
+        getBirthday() {
+            return this.birthday;
+        }
+
+        setEmail(email) {
+            this.email = email;
+        }
+
+        getEmail() {
+            return this.email;
+        }
+
+        setPhone(phone) {
+            this.phone = phone;
+        }
+
+        getPhone() {
+            return this.phone;
+        }
+
+        setLevel(level) {
+            this.level = level;
+        }
+
+        getLevel() {
+            return this.level;
+        }
+
+        setPosition(position) {
+            this.position = position;
+        }
+
+        getPosition() {
+            return this.position;
+        }
+
+        setSalary(salary) {
+            this.salary = salary;
+        }
+
+        getSalary() {
+            if(this.getPosition()==="Manager") {
+                this.salary=500;
+            } else if(this.getPosition()==="Sale") {
+                this.salary=300;
+            } else if(this.getPosition()==="Marketing") {
+                this.salary=200;
+            }
+            return this.salary;
+        }
+
+    }
+
+    let listEmployee = [];
+
+    function displayMainMenu() {
+        let choose = parseInt(prompt("1. Add New Employee. "+"\n"+
+            "2. Display Information Employee."+"\n"+
+            "3. Salary Of Employee. "+"\n"+
+            "4. Exit."));
+
+        switch (choose) {
+            case 1:{
+                addNewEmployee();
+                break;
+            }
+            case 2:{
+                displayEmployee();
+                break;
+            }
+            case 3:{
+                displaySalary();
+                break;
+            }
+            case 4:{
+                break;
+            }
+
+        }
+
+    }
+
+    function addNewEmployee() {
+        let employee = new Employee();
+
+        let name = prompt("Enter your name: ");
+        let identityCard = prompt("Enter your identity card: ");
+        let birthday = prompt("Enter your birthday: ");
+        let email = prompt("Enter your email: ");
+        let phone = prompt("Enter your phone: ");
+        let level = prompt("Enter your level: ");
+        let position = prompt("Enter your position: ");
+        let salary = prompt("Enter your salary: ");
+
+        employee.setName(name);
+        employee.setIdentifyCard(identityCard);
+        employee.setBirthday(birthday);
+        employee.setEmail(email);
+        employee.setPhone(phone);
+        employee.setLevel(level);
+        employee.setPosition(position);
+        employee.setSalary(salary);
+
+        listEmployee.push(employee);
+
+        alert("Bạn đã thêm nhân viên thành công.");
+        displayMainMenu();
+    }
+
+    function displayEmployee() {
+        let temp = "";
+        for (let i = 0; i < listEmployee.length; i++) {
+            temp += i + ". Name: " + listEmployee[i].getName() + "\n";
+        }
+        let chooseDisplay = parseInt(prompt(temp));
+        alert("Name: "+listEmployee[chooseDisplay].getName()+"\n"
+        +"Birthday: "+listEmployee[chooseDisplay].getBirthday()+"\n"
+        +"Identity Card: "+listEmployee[chooseDisplay].getIdentifyCard()+"\n"
+        +"Phone: "+listEmployee[chooseDisplay].getPhone()+"\n"
+        +"Email: "+listEmployee[chooseDisplay].getEmail()+"\n"
+        +"Level: "+listEmployee[chooseDisplay].getLevel()+"\n"
+        +"Position: "+listEmployee[chooseDisplay].getPosition()+"\n"
+        +"Salary: "+listEmployee[chooseDisplay].getSalary()+"\n")
+
+        displayMainMenu();
+    }
+
+    function displaySalary() {
+        let temp = "";
+        for (let i = 0; i < listEmployee.length; i++) {
+            temp += i + ". Name: " + listEmployee[i].getName() + "\n";
+        }
+        let chooseDisplay = parseInt(prompt(temp));
+        alert("Lương của nhân viên : "+listEmployee[chooseDisplay].getName() + "là: "+listEmployee[chooseDisplay].getSalary());
+
+        displayMainMenu();
+    }
+
+    displayMainMenu();
+</script>
+</body>
+</html>

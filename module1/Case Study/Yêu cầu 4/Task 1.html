@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu Cầu 4 - Task 1</title>
+</head>
+<body>
+<script>
+    let arrNameCustomers = [];
+
+    while (true){
+        let choose = parseInt(prompt("1. Add Name Customer "+"\n"+ "2. Delete Customer"));
+
+        switch (choose) {
+            case 1:{
+                let number = parseInt(prompt("Enter number customer you want to add to arr: "));
+                for(let i=0; i<number; i++){
+                    let nameCustomer = prompt("Enter name of customer: ");
+                    arrNameCustomers.push(nameCustomer);
+                }
+
+                let result = "";
+                arrNameCustomers.sort();
+                for(let i=0; i<arrNameCustomers.length; i++){
+                    result += (i+1) + ". " + arrNameCustomers[i] + "\n";
+                }
+                alert(result);
+
+                break;
+            }
+
+            case 2:{
+                let check = false;
+                let nameCustomer = prompt("Enter customer you want to delete: ");
+                for(let i=0; i<arrNameCustomers.length; i++){
+                    if(arrNameCustomers[i] == nameCustomer){
+                        arrNameCustomers.splice(i,1);
+                        check = true;
+                    }
+                }
+                if(!check){
+                    alert("Tên của bạn muốn xóa không có trong mảng");
+                }
+                let result = "";
+                arrNameCustomers.sort();
+                for(let i=0; i<arrNameCustomers.length; i++){
+                    result += (i+1) + ". " + arrNameCustomers[i] + "\n";
+                }
+                alert(result);
+
+                break;
+            }
+
+            default:{
+                alert("Failed");
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu Cầu 2 - Task 1+2+3</title>
+</head>
+<body>
+<script>
+    let name = "Hoàng Quang Đạt";
+    let identityCard = "201827858";
+    let birthday = "23/08/2000";
+    let email = "uy.hoang.2000@gmail.com";
+    let address = "Đà Nẵng";
+    let typeCustomer = "Diamond";
+    let discount = 10;
+    let quantityIncluded = 10;
+    let rentDays = 7;
+    let typeService = "Villa";
+    let typeRoom = "Vip";
+
+    let choose = parseInt(prompt("1. Show Information Customer."+"\n"+
+        "2. Edit Information Customer."+"\n"+
+        "3. Show the amount to be paid after discount."));
+
+    switch (choose) {
+        case 1:{
+            alert(
+                "Name: "+name+"\n"+
+                "Identity Card: "+identityCard+"\n"+
+                "Date of Birth: "+birthday+"\n"+
+                "Email: "+email+"\n"+
+                "Address: "+address+"\n"+
+                "Type of Customer: "+typeCustomer+"\n"+
+                "Discount = "+discount+"\n"+
+                "Quantity Included = "+quantityIncluded+"\n"+
+                "Rent Days = "+rentDays+"\n"+
+                "Type of Service: "+typeService+"\n"+
+                "Type of Room: "+typeRoom+"\n"
+            );
+            break;
+        }
+
+        case 2:{
+            let chooseEdit = parseInt(
+                prompt(
+                "1. Name: "+name+"\n"+
+                "2. Identity Card: "+identityCard+"\n"+
+                "3. Date of Birth: "+birthday+"\n"+
+                "4. Email: "+email+"\n"+
+                "5. Address: "+address+"\n"+
+                "6. Type of Customer: "+typeCustomer+"\n"+
+                "7. Discount = "+discount+"\n"+
+                "8. Quantity Included = "+quantityIncluded+"\n"+
+                "9. Rent Days = "+rentDays+"\n"+
+                "10. Type of Service: "+typeService+"\n"+
+                "11. Type of Room: "+typeRoom+"\n"
+                )
+            );
+
+            switch (chooseEdit) {
+                case 1:{
+                    name = prompt("Enter your name: ");
+                    break;
+                }
+                case 2:{
+                    identityCard = prompt("Enter your identity card: ");
+                    break;
+                }
+                case 3:{
+                    birthday = prompt("Enter your birthday: ");
+                    break;
+                }
+                case 4:{
+                    email = prompt("Enter your email: ");
+                    break;
+                }
+                case 5:{
+                    address = prompt("Enter your address: ");
+                    break;
+                }
+                case 6:{
+                    typeCustomer = prompt("Enter your type of customer (Diamond, Platinum, Gold, Silver, Member): ");
+                    break;
+                }
+                case 7:{
+                    discount = prompt("Enter your discount: ");
+                    break;
+                }
+                case 8:{
+                    quantityIncluded = prompt("Enter your amount: ");
+                    break;
+                }
+                case 9:{
+                    rentDays = prompt("Enter your rent days: ");
+                    break;
+                }
+                case 10:{
+                    typeService = prompt("Enter your type of service (Villa, House, Room): ");
+                    break;
+                }
+                case 11:{
+                    typeRoom = prompt("Enter your type of room (Vip, Business,  Normal): ");
+                    break;
+                }
+
+                default:{
+                    alert("Failed");
+                }
+
+            }
+
+            alert(
+                "Name: "+name+"\n"+
+                "Identity Card: "+identityCard+"\n"+
+                "Date of Birth: "+birthday+"\n"+
+                "Email: "+email+"\n"+
+                "Address: "+address+"\n"+
+                "Type of Customer: "+typeCustomer+"\n"+
+                "Discount = "+discount+"\n"+
+                "Quantity Included = "+quantityIncluded+"\n"+
+                "Rent Days = "+rentDays+"\n"+
+                "Type of Service: "+typeService+"\n"+
+                "Type of Room: "+typeRoom+"\n"
+            );
+
+            break;
+
+        }
+
+        case 3:{
+            let money = 0;
+            if(typeService == "Villa"){
+                money = 500;
+            }
+            if(typeService == "House"){
+                money = 300;
+            }
+            if(typeService == "Room"){
+                money = 100;
+            }
+
+            let temp = 0;
+            if(address == "Đà Nẵng"){
+                temp += 20;
+            }
+            if(address == "Huế"){
+                temp += 10;
+            }
+            if(address == "Quảng Nam"){
+                temp += 5;
+            }
+
+            if(rentDays > 7){
+                temp += 30;
+            }
+            else if(rentDays >= 5){
+                temp += 20;
+            }
+            else if(rentDays >= 2){
+                temp += 10;
+            }
+
+
+            alert("Bill = "+(money*rentDays-temp));
+            break;
+        }
+
+        default:{
+            alert("Bạn hãy chọn các chức năng có trong trình đơn");
+        }
+    }
+</script>
+</body>
+</html>

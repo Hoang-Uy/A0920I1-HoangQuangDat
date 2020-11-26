@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = []; // Khai báo mảng a.
+    let n; // Khai báo biến số lượng phần tử cần nhập vào mảng a.
+
+    do{
+        n = parseInt(prompt("Nhập vào số lượng phần tử của mảng (n<=50): "));
+    }while(n>50);
+
+    for(let i=0; i<n; i++){
+        a[i] = parseInt(prompt("a["+i+"] = "));
+    }
+
+    let b = []; // Khai báo mảng b.
+    let dem; // Khai báo biến đếm tạm để xác định số lượng ước số của từng phần tử trong mảng.
+    for(let i=0; i<a.length; i++){
+        dem=0;
+        for(let j=1;j<=a[i];j++){
+            if(a[i]%j===0) {
+                dem++;
+            }
+        }
+        if(dem===2){
+            b.push(a[i]);
+        }
+    }
+
+    document.writeln("Mảng a: "+a+"<br>");
+    document.writeln("Mảng b: "+b);
+</script>
+</body>
+</html>

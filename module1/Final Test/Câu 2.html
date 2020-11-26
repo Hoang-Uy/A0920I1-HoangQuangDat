@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class PhanSo {
+        constructor(tuSo, mauSo) {
+            this.tuSo = tuSo;
+            this.mauSo = mauSo;
+
+        }
+
+        getTuSo() {
+            return this.tuSo;
+        }
+
+        setTuSo(tuSo) {
+            this.tuSo = tuSo;
+        }
+
+        getMauSo() {
+            return this.mauSo;
+        }
+
+        setMauSo(mauSo) {
+            this.mauSo = mauSo;
+        }
+
+        kiemTraBangNhau(phanSo){
+            if( ( this.getTuSo()/this.getMauSo() ) == ( phanSo.getTuSo()/phanSo.getMauSo() ) ){
+                return true;
+            }
+            else
+                return false;
+        }
+    }
+
+    let tu1 = parseInt(prompt("Nhập vào tử số của phân số 1: "));
+    let mau1 = parseInt(prompt("Nhập vào mẫu số của phân số 1: "));
+    let phanSo1 = new PhanSo(tu1,mau1);
+
+
+    let tu2 = parseInt(prompt("Nhập vào tử số của phân số 2: "));
+    let mau2 = parseInt(prompt("Nhập vào mẫu số của phân số 2: "));
+    let phanSo2 = new PhanSo(tu2,mau2);
+
+    if(phanSo1.kiemTraBangNhau(phanSo2)){
+        alert("True");
+    }
+    else
+        alert("False");
+</script>
+</body>
+</html>
